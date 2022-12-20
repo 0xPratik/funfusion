@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.3.2",
   "name": "mpl_trifle",
   "instructions": [
     {
@@ -85,7 +85,7 @@
         {
           "name": "trifleAuthority",
           "isMut": false,
-          "isSigner": false,
+          "isSigner": true,
           "desc": "Trifle Authority - the account that can sign transactions for the trifle account"
         },
         {
@@ -137,7 +137,7 @@
         {
           "name": "trifleAuthority",
           "isMut": true,
-          "isSigner": true,
+          "isSigner": false,
           "desc": "Trifle Authority - the account that can sign transactions for the trifle account"
         },
         {
@@ -751,7 +751,12 @@
           },
           {
             "name": "padding",
-            "type": "u8"
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
           }
         ]
       }
@@ -790,7 +795,12 @@
           },
           {
             "name": "padding",
-            "type": "u8"
+            "type": {
+              "array": [
+                "u8",
+                32
+              ]
+            }
           }
         ]
       }
@@ -1164,6 +1174,11 @@
       "code": 18,
       "name": "InvalidCollection",
       "msg": "Failed to deserialize collection"
+    },
+    {
+      "code": 19,
+      "name": "MustBeHolder",
+      "msg": "Only the holder is allowed to perform this action"
     }
   ],
   "metadata": {
